@@ -1,4 +1,4 @@
-import { LogoStyled } from "./Layout/LayoutStyled";
+import { LogoStyled } from "./Navbar/Navbar.styled";
 
 export function Logo () {
   return (

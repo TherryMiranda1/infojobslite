@@ -16,14 +16,14 @@ export const OffersContainer = styled.section`
 export const OfferCardStyled = styled.article`
   width: 300px;
   height: 310px;
-  background: #ffffff;
+  background: ${({ theme: { colors } }) => colors.primary};
   display: flex;
   flex-direction: column;
   aspect-ratio: 1;
   padding: 12px;
   justify-content: flex-start;
   align-items: flex-start;
-  color: #000000;
+  color: ${({ theme: { colors } }) => colors.secondary};
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 28px;
   transition: all 0.4s ease-in-out;
@@ -34,16 +34,22 @@ export const OfferCardStyled = styled.article`
   }
   a {
     text-decoration: none;
-    color: #000000;
+    color: ${({ theme: { colors } }) => colors.secondary};
     font-size: 14px;
   }
   h3 {
     margin: 0;
     font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      scale: 1.02;
+      opacity: 0.8;
+    }
   }
 
   &:hover {
-    background: #bbfafc;
+    background: ${({ theme: { colors } }) => colors.hover};
+    transform: rotate(1deg);
   }
   @media (max-width: 680px) {
     width: 100%;
@@ -57,7 +63,7 @@ export const CardTextsContainer = styled.section`
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  color: #89898a;
+  color: ${({ theme: { colors } }) => colors.secondary};
   padding-top: 12px;
   p {
     margin: 0;

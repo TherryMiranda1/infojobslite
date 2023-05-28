@@ -29,12 +29,12 @@ export const useOffers = () => {
     setIsLoading(false);
   };
 
-  const { getItems, hasPagination, items, updateLoading } = usePagination<Offer>({
-    call,
-    isLoading,
-    data,
-  });
-  console.log(items)
+  const { getItems, hasPagination, items, updateLoading } =
+    usePagination<Offer>({
+      call,
+      isLoading,
+      data,
+    });
 
   return {
     getInfoJobsOffers: getItems,

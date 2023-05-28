@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@heroicons/react': 1.0.6
+  '@next/font': ^13.4.4
   '@reduxjs/toolkit': ^1.9.5
   '@tremor/react': ^2.6.2
   '@types/node': 20.1.5
@@ -23,6 +24,7 @@ specifiers:
 
 dependencies:
   '@heroicons/react': 1.0.6_react@18.2.0
+  '@next/font': 13.4.4
   '@reduxjs/toolkit': 1.9.5_k4ae6lp43ej6mezo3ztvx6pykq
   '@tremor/react': 2.7.0_biqbaboplfbrettd7655fr4n2y
   '@types/node': 20.1.5
@@ -1483,6 +1485,10 @@ packages:
     resolution: {integrity: sha512-ZeFWgrxwckxTpYM+ANeUL9E7LOGPbZKmI94LJIjbDU69iEIgqd4WD0l2pVbOJMr/+vgoZmJ9Dx1m0WJ7WScXHA==}
     dependencies:
       glob: 7.1.7
+    dev: false
+
+  /@next/font/13.4.4:
+    resolution: {integrity: sha512-iYmL/O0rV9NS8a2UXuRoZOzImz8Q0mM8bAmxtj8nccrpwZ6iOOZlbf2d0Genczl4wtuXRXVPR8goGjJM4C2SDg==}
     dev: false
 
   /@next/swc-darwin-arm64/13.4.2:

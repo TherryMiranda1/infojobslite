@@ -3,7 +3,6 @@ export const theme = {
     primary: "#FFFFFF",
     secondary: "#666666",
     powderWhite: "#FFFDF9",
-    infojobsGray: "#f2f2f2",
     infojobsBlue: "#167DB7",
     persianGreen: "#06B49A",
     lightBlue: "#AFDBD2",
@@ -31,9 +30,18 @@ export const theme = {
 
 export const lightTheme = {
   ...theme,
+  colors: {
+    ...theme.colors,
+    primary: "#FFFFFF",
+    inverse: "#111111",
+    secondary: "#666666",
+    hover: "#eaeaea",
+    infojobsGray: "#f2f2f2",
+  },
 
   switchBackgroundColor: "#ccc",
   switchHandleColor: "#fff",
+  hover: "#eaf7f9",
 };
 
 export const darkTheme = {
@@ -42,7 +50,10 @@ export const darkTheme = {
     ...theme.colors,
     primary: "#111111",
     secondary: "#888888",
+    inverse: "#FFFFFF",
+    hover: "#1f1f1f",
+    infojobsGray: "#262626",
   },
-  switchBackgroundColor: "#333",
-  switchHandleColor: "#ff0",
+  switchBackgroundColor: "#167DB7",
+  switchHandleColor: "#167DB7",
 };

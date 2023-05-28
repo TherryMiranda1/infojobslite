@@ -19,6 +19,7 @@ export const InputTextStyled = styled.input`
   border-radius: 25px;
   font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: ${({ theme: { colors } }) => `1px solid ${colors.borders}`};
   @media (max-width: 430px) {
     width: 90%;
     margin-bottom: 10px;
@@ -28,7 +29,7 @@ export const InputTextStyled = styled.input`
 export const ButtonSearchStyled = styled.button`
   position: absolute;
   right: 3px;
-  top: 2px;
+  top: 3px;
   border: none;
   width: 30px;
   aspect-ratio: 1;
@@ -39,7 +40,7 @@ export const ButtonSearchStyled = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  &:hover{
+  &:hover {
     opacity: 0.6;
   }
 `;

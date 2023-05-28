@@ -1,4 +1,6 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
 import { useEffect, useState } from "react";
+import { GetOffersParams } from "../context/offersContext";
 
 export enum UpdateStatusType {
   LOADING = "LOADING",
@@ -6,7 +8,7 @@ export enum UpdateStatusType {
 }
 
 interface UsePaginationReturnType<T> {
-  getItems: (params?: any, isUpdate?: boolean) => void;
+  getItems: (isUpdate?: boolean, params?: any) => void;
   hasPagination: boolean;
   items: T[];
   updateLoading: boolean;
@@ -28,11 +30,18 @@ export function usePagination<T>({
   const [pagination, setPagination] = useState<Number | undefined>(undefined);
   const [updateLoading, setUpdateLoading] = useState(false);
 
-  const hasPagination = true;
+  const hasPagination = data?.totalPages > data?.currentPage;
 
-  const getItems = (params: any, isUpdate = false) => {
+  const getItems = (isUpdate = false, params: GetOffersParams) => {
     setIsUpdating(isUpdate);
-    isUpdate ? call({ ...params, page: pagination }) : call(params);
+    if (isUpdate) {
+      call({ ...params, page: pagination });
+    } else {
+      if (params?.q) {
+        setItems([]);
+      }
+      call(params);
+    }
   };
 
   useEffect(() => {
@@ -40,11 +49,11 @@ export function usePagination<T>({
       setItems(isUpdating ? [...items, ...data.items] : data.items);
       setPagination(data.currentPage + 1);
     }
-  },[data]);
+  }, [data]);
 
   useEffect(() => {
     isUpdating && setUpdateLoading(isLoading);
-  }, [isUpdating, isLoading]);
+  }, [isLoading]);
 
   return {
     getItems,

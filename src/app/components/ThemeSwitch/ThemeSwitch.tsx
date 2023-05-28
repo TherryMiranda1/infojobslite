@@ -6,12 +6,14 @@ import { darken } from "polished";
 const SwitchContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin: 0 20px;
 `;
 
 const SwitchLabel = styled.label`
   display: flex;
   align-items: center;
-  margin-right: 8px;
+  gap: 6px;
 `;
 
 const SwitchInput = styled.input`
@@ -44,29 +46,39 @@ const SwitchInput = styled.input`
   }
 `;
 
-const IconWrapper = styled.span`
-  margin-right: 4px;
+const IconWrapper = styled.button`
+  border: none;
+  background: ${({ theme }) => theme.switchHandleColor};
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  &:hover {
+    scale: 1.03;
+  }
 `;
 
 interface Props {
   isDarkMode: boolean;
-  toggleTheme: () => void;
+  setIsDarkMode: (isDark: boolean) => void;
 }
 
-const ThemeSwitch = ({ isDarkMode, toggleTheme }: Props) => {
+const ThemeSwitch = ({ isDarkMode, setIsDarkMode }: Props) => {
   return (
     <SwitchContainer>
       <SwitchLabel>
-        <IconWrapper>
-          <FiSun />
+        <IconWrapper
+          style={{ display: isDarkMode ? "flex" : "none" }}
+          onClick={() => setIsDarkMode(false)}
+        >
+          <FiSun size={20} />
         </IconWrapper>
-        <SwitchInput
-          type="checkbox"
-          checked={isDarkMode}
-          onChange={toggleTheme}
-        />
-        <IconWrapper>
-          <FiMoon />
+        <IconWrapper
+          style={{ display: isDarkMode ? "none" : "flex" }}
+          onClick={() => setIsDarkMode(true)}
+        >
+          <FiMoon size={20} />
         </IconWrapper>
       </SwitchLabel>
     </SwitchContainer>
