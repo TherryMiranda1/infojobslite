@@ -11,6 +11,7 @@ export const NavBarStyled = styled.section`
   align-items: center;
   justify-content: space-between;
   transition: all 0.1s ease-in-out;
+  width: 100%;
   @media (max-width: 480px) {
     justify-content: center;
     border-radius: 0;
