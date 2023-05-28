@@ -6,6 +6,8 @@ import { darkTheme, lightTheme } from "./theme";
 import { useState } from "react";
 import { OffersContainer } from "./context/offersContext";
 import { AppContainer, ContentStyled } from "./components/App.styled";
+import { Poppins } from "next/font/google";
+const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -13,7 +15,7 @@ export default function Home() {
   return (
     <OffersContainer>
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        <ContentStyled>
+        <ContentStyled className={poppins.className}>
           <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
           <AppContainer>
             <ListOfOffers />

@@ -7,7 +7,7 @@ export const NavBarStyled = styled.section`
   display: flex;
   flex-wrap: wrap;
   z-index: 10;
-  padding: 0 20px;
+  padding: 10px 20px;
   align-items: center;
   justify-content: space-between;
   transition: all 0.1s ease-in-out;

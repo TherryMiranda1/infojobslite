@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputTextContainer = styled.div`
+export const InputTextContainer = styled.form`
   display: flex;
   flex-direction: column;
   max-width: 90%;
@@ -22,7 +22,6 @@ export const InputTextStyled = styled.input`
   border: ${({ theme: { colors } }) => `1px solid ${colors.borders}`};
   @media (max-width: 430px) {
     width: 90%;
-    margin-bottom: 10px;
   }
 `;
 

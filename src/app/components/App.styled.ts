@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const AppContainer = styled.main`
   margin: 0;
-  padding: 0;
+  padding: 10px;
 
   min-height: 100%;
   max-width: 1400px;

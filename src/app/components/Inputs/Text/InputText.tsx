@@ -34,7 +34,12 @@ const InputText = ({
         required={required}
         value={value}
       />
-      <ButtonSearchStyled onClick={buttonOnClick}>
+      <ButtonSearchStyled
+        onClick={(e) => {
+          e.preventDefault();
+          buttonOnClick();
+        }}
+      >
         <BiSearchAlt />
       </ButtonSearchStyled>
     </InputTextContainer>

@@ -1,7 +1,4 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
-
-export const poppins = Poppins({ weight: "500", subsets: ["latin"] });
 
 export const metadata = {
   title: "InfoJobs Lite",
@@ -15,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={poppins.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

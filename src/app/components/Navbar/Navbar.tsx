@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Logo } from "../Logo";
 import { NavBarStyled, TitleStyled } from "./Navbar.styled";
 import { useScrollDirection } from "@/app/hooks/useScroll";

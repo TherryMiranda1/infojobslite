@@ -7,7 +7,6 @@ export async function getOffersRequest(params?: GetOffersParams) {
   const queryPage = params?.page ? params.page : 1;
   const queryQ = params?.q ? `&q=${params.q}` : "";
 
-  console.log(queryQ);
   const res = await fetch(`${url}/offers?page=${queryPage}${queryQ}`);
 
   const data = await res.json();
