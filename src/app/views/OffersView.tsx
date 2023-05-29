@@ -23,10 +23,6 @@ export function ListOfOffers() {
     info,
   } = useOffersContext();
 
-  console.log(info);
-  useEffect(() => {
-    getInfoJobsOffers();
-  }, []);
   if (isLoading && updateLoading == false && !offers) {
     return (
       <OffersContainer>
@@ -39,7 +35,8 @@ export function ListOfOffers() {
       {info && (
         <p>
           {`${info.totalResults} Resultados`}
-          {Boolean(info.dataLayer.search_terms) && ` para ${info.dataLayer.search_terms}`}
+          {Boolean(info.dataLayer.search_terms) &&
+            ` para ${info.dataLayer.search_terms}`}
         </p>
       )}
       <OffersContainer>

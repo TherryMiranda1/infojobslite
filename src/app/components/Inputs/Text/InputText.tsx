@@ -40,7 +40,7 @@ const InputText = ({
           buttonOnClick();
         }}
       >
-        <BiSearchAlt />
+        <BiSearchAlt size={22} />
       </ButtonSearchStyled>
     </InputTextContainer>
   );

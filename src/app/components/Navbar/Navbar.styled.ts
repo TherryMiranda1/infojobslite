@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 export const NavBarStyled = styled.section`
   position: fixed;
   top: 0;
+  height: 60px;
   display: flex;
   flex-wrap: wrap;
   z-index: 10;

@@ -10,7 +10,7 @@ export const InputTextContainer = styled.form`
 export const InputTextStyled = styled.input`
   display: flex;
   flex-direction: column;
-  padding: 8px 16px;
+  padding: 12px 16px;
   background: ${({ theme: { colors } }) => colors.primary};
   color: ${({ theme: { colors } }) => colors.secondary};
   outline: none;
@@ -23,17 +23,18 @@ export const InputTextStyled = styled.input`
 
 export const ButtonSearchStyled = styled.button`
   position: absolute;
-  right: 3px;
-  top: 3px;
+  right: 4px;
+  top: 6px;
   border: none;
   width: 30px;
   aspect-ratio: 1;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 3px;
+  padding: 5px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: ${({ theme: { colors } }) => colors.secondary};
   cursor: pointer;
   &:hover {
     opacity: 0.6;

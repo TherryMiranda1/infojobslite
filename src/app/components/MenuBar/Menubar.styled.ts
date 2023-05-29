@@ -6,9 +6,9 @@ export const MenubarStyled = styled.section`
   position: fixed;
   z-index: 30;
   height: 70px;
-  top: 10px;
+  top: 8px;
   transition: all 0.2s ease-in-out;
   @media (max-width: 590px) {
-    top: 60px;
+    top: 70px;
   }
 `;

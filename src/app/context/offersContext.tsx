@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useOffers } from "../hooks/useOffers";
 import { Offer } from "../domain/models/Offer";
 
@@ -38,7 +38,10 @@ export const OffersContainer = ({
     updateLoading,
   } = useOffers();
   const [searchText, setSearchText] = useState("");
-
+  
+  useEffect(() => {
+    getInfoJobsOffers();
+  }, []);
   return (
     <OffersContext.Provider
       value={{
