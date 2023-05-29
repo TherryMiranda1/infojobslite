@@ -59,7 +59,7 @@ export const OfferCardStyled = styled.article`
 export const CardTextsContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 4px;
   align-items: center;
   justify-content: center;
   font-size: 12px;

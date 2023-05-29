@@ -24,3 +24,11 @@ export const ContentStyled = styled.div`
   align-items: center;
   position: relative;
 `;
+
+export const PageContainer = styled.main`
+  padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;

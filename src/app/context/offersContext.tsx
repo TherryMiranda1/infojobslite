@@ -10,6 +10,7 @@ export interface GetOffersParams {
 
 interface OffersContextType {
   offers: Offer[];
+  info: any;
   getInfoJobsOffers: (isUpdate?: boolean, params?: GetOffersParams) => void;
   isLoading: boolean;
   hasPagination: boolean;
@@ -28,14 +29,21 @@ export const OffersContainer = ({
 }: {
   children: JSX.Element;
 }): JSX.Element => {
-  const { offers, getInfoJobsOffers, isLoading, hasPagination, updateLoading } =
-    useOffers();
+  const {
+    offers,
+    info,
+    getInfoJobsOffers,
+    isLoading,
+    hasPagination,
+    updateLoading,
+  } = useOffers();
   const [searchText, setSearchText] = useState("");
 
   return (
     <OffersContext.Provider
       value={{
         offers,
+        info,
         getInfoJobsOffers,
         isLoading,
         hasPagination,

@@ -10,6 +10,7 @@ import OfferCard from "../components/OfferCard/OfferCard";
 import { useOffersContext } from "../context/offersContext";
 import { Offer } from "../domain/models/Offer";
 import { cleanText } from "../utils/cleanText";
+import { PageContainer } from "../components/App.styled";
 
 export function ListOfOffers() {
   const {
@@ -19,8 +20,10 @@ export function ListOfOffers() {
     hasPagination,
     updateLoading,
     searchText,
+    info,
   } = useOffersContext();
 
+  console.log(info);
   useEffect(() => {
     getInfoJobsOffers();
   }, []);
@@ -32,7 +35,13 @@ export function ListOfOffers() {
     );
   }
   return (
-    <>
+    <PageContainer>
+      {info && (
+        <p>
+          {`${info.totalResults} Resultados`}
+          {Boolean(info.dataLayer.search_terms) && ` para ${info.dataLayer.search_terms}`}
+        </p>
+      )}
       <OffersContainer>
         {offers?.map((item: Offer) => (
           <OfferCard key={item.id} item={item} />
@@ -46,6 +55,6 @@ export function ListOfOffers() {
           }
         />
       )}
-    </>
+    </PageContainer>
   );
 }

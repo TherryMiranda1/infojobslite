@@ -12,6 +12,7 @@ interface UsePaginationReturnType<T> {
   hasPagination: boolean;
   items: T[];
   updateLoading: boolean;
+  info: any;
 }
 
 interface Props {
@@ -60,5 +61,6 @@ export function usePagination<T>({
     hasPagination,
     updateLoading,
     items,
+    info: data,
   };
 }

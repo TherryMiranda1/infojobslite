@@ -29,7 +29,7 @@ export const useOffers = () => {
     setIsLoading(false);
   };
 
-  const { getItems, hasPagination, items, updateLoading } =
+  const { getItems, hasPagination, items, updateLoading,info } =
     usePagination<Offer>({
       call,
       isLoading,
@@ -44,5 +44,6 @@ export const useOffers = () => {
     error,
     hasPagination,
     updateLoading,
+    info
   };
 };
