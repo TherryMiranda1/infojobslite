@@ -16,13 +16,14 @@ interface Props {
 
 const Navbar = ({ isDarkMode, setIsDarkMode }: Props) => {
   const { awayOfTop } = useScrollDirection();
-  const { searchText, setSearchText } = useOffersContext();
-  const { getInfoJobsOffers } = useOffersContext();
+
   const DefaultTheme = useTheme();
   return (
     <NavBarStyled
       style={{
-        background: awayOfTop ? DefaultTheme?.colors.primary : DefaultTheme?.colors.infojobsGray,
+        background: awayOfTop
+          ? DefaultTheme?.colors.primary
+          : DefaultTheme?.colors.infojobsGray,
         boxShadow: awayOfTop ? "rgba(0, 0, 0, 0.16) 0px 1px 4px" : "",
       }}
     >
@@ -30,14 +31,6 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: Props) => {
         <Logo />
         <strong>lite</strong>
       </TitleStyled>
-      <InputText
-        onChange={(e) => setSearchText(e)}
-        placeholder={"Puesto, empresa o palabra clave"}
-        buttonOnClick={() =>
-          getInfoJobsOffers(false, { q: cleanText(searchText) })
-        }
-        value={searchText}
-      />
       <ThemeSwitch isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
     </NavBarStyled>
   );

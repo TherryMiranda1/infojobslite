@@ -3,26 +3,22 @@ import styled from "styled-components";
 export const InputTextContainer = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 90%;
+  width: 300px;
   position: relative;
 `;
 
 export const InputTextStyled = styled.input`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  max-width: 50vw;
   padding: 8px 16px;
   background: ${({ theme: { colors } }) => colors.primary};
+  color: ${({ theme: { colors } }) => colors.secondary};
   outline: none;
   border: none;
   border-radius: 25px;
-  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+  font-size: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border: ${({ theme: { colors } }) => `1px solid ${colors.borders}`};
-  @media (max-width: 430px) {
-    width: 90%;
-  }
 `;
 
 export const ButtonSearchStyled = styled.button`

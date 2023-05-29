@@ -2,17 +2,18 @@
 import { styled } from "styled-components";
 
 export const NavBarStyled = styled.section`
-  position: sticky;
+  position: fixed;
   top: 0;
   display: flex;
   flex-wrap: wrap;
   z-index: 10;
-  padding: 10px 20px;
+  padding: 0 20px;
   align-items: center;
   justify-content: space-between;
   transition: all 0.1s ease-in-out;
   width: 100%;
-  @media (max-width: 480px) {
+  transition: all 0.2s ease-in-out;
+  @media (max-width: 590px) {
     justify-content: center;
     border-radius: 0;
   }
