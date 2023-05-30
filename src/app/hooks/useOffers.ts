@@ -2,7 +2,6 @@ import { useState } from "react";
 import { getOffersRequest } from "../infra/services/offers";
 import { usePagination } from "./usePagination";
 import { Offer } from "../domain/models/Offer";
-import { removeDuplicated } from "../utils";
 
 export const useOffers = () => {
   const [data, setData] = useState<any>(null);
