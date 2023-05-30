@@ -14,8 +14,8 @@ export const OffersContainer = styled.section`
 `;
 
 export const OfferCardStyled = styled.article`
-  width: 300px;
-  height: 310px;
+  width: 330px;
+  height: 330px;
   background: ${({ theme: { colors } }) => colors.primary};
   display: flex;
   flex-direction: column;
