@@ -9,6 +9,6 @@ export const MenubarStyled = styled.section`
   top: 8px;
   transition: all 0.2s ease-in-out;
   @media (max-width: 590px) {
-    top: 70px;
+    top: 120px;
   }
 `;

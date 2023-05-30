@@ -12,7 +12,11 @@ export const AppContainer = styled.main`
   }
 `;
 
-export const ContentStyled = styled.div`
+interface props {
+  children: any;
+}
+
+export const ContentStyled = styled.div<props>`
   margin: auto;
   background: ${({ theme: { colors } }) => colors.infojobsGray};
   display: flex;

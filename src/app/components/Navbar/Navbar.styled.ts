@@ -1,14 +1,22 @@
-"use client";
 import { styled } from "styled-components";
 
 export const NavBarStyled = styled.section`
   position: fixed;
   top: 0;
-  height: 60px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   z-index: 10;
   padding: 0 20px;
+  justify-content: space-between;
+  transition: all 0.1s ease-in-out;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+
+`;
+export const FixedMenuStyled = styled.section`
+  height: 55px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   transition: all 0.1s ease-in-out;
@@ -16,7 +24,6 @@ export const NavBarStyled = styled.section`
   transition: all 0.2s ease-in-out;
   @media (max-width: 590px) {
     justify-content: center;
-    border-radius: 0;
   }
 `;
 

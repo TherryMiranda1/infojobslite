@@ -11,6 +11,7 @@ import { useOffersContext } from "../context/offersContext";
 import { Offer } from "../domain/models/Offer";
 import { cleanText } from "../utils/cleanText";
 import { PageContainer } from "../components/App.styled";
+import { PROVINCES } from "../static/constants/provinces";
 
 export function ListOfOffers() {
   const {
@@ -30,6 +31,7 @@ export function ListOfOffers() {
       </OffersContainer>
     );
   }
+
   return (
     <PageContainer>
       {info && (

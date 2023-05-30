@@ -11,6 +11,7 @@ import Menubar from "./components/MenuBar/Menubar";
 import Banner from "./components/Banner/Banner";
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
+
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isBanner, setIsBanner] = useState(true);
@@ -19,7 +20,6 @@ export default function Home() {
     setTimeout(() => setIsBanner(false), 1000);
   }, []);
 
-  
   return (
     <OffersContainer>
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
@@ -32,6 +32,8 @@ export default function Home() {
             <AppContainer>
               <ListOfOffers />
             </AppContainer>
+            <div>
+            </div>
           </ContentStyled>
         )}
       </ThemeProvider>
