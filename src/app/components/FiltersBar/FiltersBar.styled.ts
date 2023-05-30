@@ -88,13 +88,14 @@ export const SelectionCardStyled = styled.section`
   flex-direction: column;
   position: absolute;
   top: 25vh;
-  width: 70vw;
+  width: 500px;
   max-width: 800px;
   min-height: 250px;
   max-height: 60vh;
   padding: 12px;
   z-index: 10;
   align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
   gap: 0.6rem;
   background: ${({ theme: { colors } }) => colors.primary};

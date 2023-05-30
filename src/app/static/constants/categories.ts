@@ -4,12 +4,6 @@ export const CATEGORIES = {
   type: "object",
   items: [
     {
-      id: 0,
-      value: "(Seleccionar)",
-      order: 0,
-      key: "-",
-    },
-    {
       id: 20,
       value: "Administración Pública",
       order: 1,
