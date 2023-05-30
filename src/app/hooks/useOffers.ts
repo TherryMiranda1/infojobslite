@@ -2,6 +2,7 @@ import { useState } from "react";
 import { getOffersRequest } from "../infra/services/offers";
 import { usePagination } from "./usePagination";
 import { Offer } from "../domain/models/Offer";
+import { removeDuplicated } from "../utils";
 
 export const useOffers = () => {
   const [data, setData] = useState<any>(null);
@@ -29,7 +30,7 @@ export const useOffers = () => {
     setIsLoading(false);
   };
 
-  const { getItems, hasPagination, items, updateLoading,info } =
+  const { getItems, hasPagination, items, updateLoading, info } =
     usePagination<Offer>({
       call,
       isLoading,
@@ -44,6 +45,6 @@ export const useOffers = () => {
     error,
     hasPagination,
     updateLoading,
-    info
+    info,
   };
 };

@@ -1,17 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
 import { PuffLoader } from "react-spinners";
 import { OffersContainer } from "../components/OfferCard/OfferCard.styled";
 
-import { useOffers } from "../hooks/useOffers";
 import { IntersectionTrigger } from "../components/IntersectionTrigger/IntersectionTrigger";
 import OfferCard from "../components/OfferCard/OfferCard";
 import { useOffersContext } from "../context/offersContext";
 import { Offer } from "../domain/models/Offer";
 import { cleanText } from "../utils/cleanText";
 import { PageContainer } from "../components/App.styled";
-import { PROVINCES } from "../static/constants/provinces";
+import { ResultsStyled } from "../components/Navbar/Navbar.styled";
 
 export function ListOfOffers() {
   const {
@@ -35,16 +33,15 @@ export function ListOfOffers() {
   return (
     <PageContainer>
       {info && (
-        <p>
+        <ResultsStyled>
           {`${info.totalResults} Resultados`}
           {Boolean(info.dataLayer.search_terms) &&
             ` para ${info.dataLayer.search_terms}`}
-        </p>
+        </ResultsStyled>
       )}
       <OffersContainer>
-        {offers?.map((item: Offer) => (
-          <OfferCard key={item.id} item={item} />
-        ))}
+        {offers &&
+          offers?.map((item: Offer) => <OfferCard key={item.id} item={item} />)}
       </OffersContainer>
       {hasPagination && offers?.length > 0 && !isLoading && (
         <IntersectionTrigger

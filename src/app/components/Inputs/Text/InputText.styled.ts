@@ -16,8 +16,9 @@ export const InputTextStyled = styled.input`
   outline: none;
   border: none;
   border-radius: 25px;
-  font-size: 1rem;
+  font-size: 0.88rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-family: inherit;
   border: ${({ theme: { colors } }) => `1px solid ${colors.borders}`};
 `;
 
@@ -26,7 +27,7 @@ export const ButtonSearchStyled = styled.button`
   right: 4px;
   top: 6px;
   border: none;
-  width: 30px;
+  width: 32px;
   aspect-ratio: 1;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 5px;

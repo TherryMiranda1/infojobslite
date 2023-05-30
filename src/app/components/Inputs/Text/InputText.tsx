@@ -13,7 +13,7 @@ interface Props {
   required?: boolean;
   isPassword?: boolean;
   value?: string;
-  buttonOnClick: () => void;
+  buttonOnClick?: () => void;
 }
 const InputText = ({
   label,
@@ -34,14 +34,16 @@ const InputText = ({
         required={required}
         value={value}
       />
-      <ButtonSearchStyled
-        onClick={(e) => {
-          e.preventDefault();
-          buttonOnClick();
-        }}
-      >
-        <BiSearchAlt size={22} />
-      </ButtonSearchStyled>
+      {buttonOnClick && (
+        <ButtonSearchStyled
+          onClick={(e) => {
+            e.preventDefault();
+            buttonOnClick();
+          }}
+        >
+          <BiSearchAlt size={24} />
+        </ButtonSearchStyled>
+      )}
     </InputTextContainer>
   );
 };

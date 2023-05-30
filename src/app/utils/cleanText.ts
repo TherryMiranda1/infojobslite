@@ -1,1 +1,2 @@
-export const cleanText = (text: string): string => text.replaceAll(" ", "-");
+export const cleanText = (text?: string): string =>
+  text ? text.replaceAll(" ", "-") : "";

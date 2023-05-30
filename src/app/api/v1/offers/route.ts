@@ -1,8 +1,28 @@
 const infoJobsToken = process.env.INFOJOBS_TOKEN ?? "";
 
-async function getOffers(page: string, params: string) {
-  const res = await fetch(
-    `https://api.infojobs.net/api/9/offer?page=${page}${params}`,
+const PARAMS = [
+  "q",
+  "category",
+  "contractType",
+  "order",
+  "province",
+  "sinceDate",
+  "subcategory",
+  "teleworking",
+];
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const page = searchParams.get("page");
+
+  const buildQ = (key: string) =>
+    searchParams.get(key) ? `&${key}=${searchParams.get(key)}` : "";
+
+  const paramsQ = PARAMS.map((param) => buildQ(param)).join("");
+
+  console.log(paramsQ);
+  const offers = await fetch(
+    `https://api.infojobs.net/api/9/offer?page=${page}${paramsQ}`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -11,22 +31,9 @@ async function getOffers(page: string, params: string) {
     }
   );
 
-  const offers = await res.json();
+  const res = await offers.json();
 
-  return offers;
-}
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const page = searchParams.get("page");
-  const q = searchParams.get("q");
-  let offers;
-  const paramsQuery = q ? `&q=${q}` : "";
-  if (page === null) {
-  } else {
-    offers = await getOffers(`${page}`, paramsQuery);
-  }
-
-  const parsedResponse = JSON.stringify(offers);
+  const parsedResponse = JSON.stringify(res);
 
   return new Response(parsedResponse, { status: 200 });
 }

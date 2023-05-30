@@ -17,17 +17,28 @@ interface OffersContextType {
   updateLoading: boolean;
   searchText: string;
   setSearchText: (text: string) => void;
+  params: Record<string, string | number | undefined>;
+  setParams: (params: Record<string, string | number | undefined>) => void;
 }
 
-interface Props {
-  children: JSX.Element | JSX.Element[];
-}
 const OffersContext = createContext<OffersContextType>({} as OffersContextType);
+
+const EMPTY_PARAMS = {
+  page: 1,
+  q: undefined,
+  category: undefined,
+  contractType: undefined,
+  order: undefined,
+  province: undefined,
+  sinceDate: undefined,
+  subcategory: undefined,
+  teleworking: undefined,
+};
 
 export const OffersContainer = ({
   children,
 }: {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }): JSX.Element => {
   const {
     offers,
@@ -38,10 +49,16 @@ export const OffersContainer = ({
     updateLoading,
   } = useOffers();
   const [searchText, setSearchText] = useState("");
-  
+  const [params, setParams] =
+    useState<Record<string, string | number | undefined>>(EMPTY_PARAMS);
+
   useEffect(() => {
     getInfoJobsOffers();
   }, []);
+
+  useEffect(() => {
+    getInfoJobsOffers(false, params);
+  }, [params]);
   return (
     <OffersContext.Provider
       value={{
@@ -53,6 +70,8 @@ export const OffersContainer = ({
         updateLoading,
         searchText,
         setSearchText,
+        params,
+        setParams,
       }}
     >
       {children}

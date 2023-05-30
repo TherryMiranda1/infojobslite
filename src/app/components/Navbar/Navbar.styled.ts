@@ -11,7 +11,6 @@ export const NavBarStyled = styled.section`
   transition: all 0.1s ease-in-out;
   width: 100%;
   transition: all 0.2s ease-in-out;
-
 `;
 export const FixedMenuStyled = styled.section`
   height: 55px;
@@ -31,6 +30,16 @@ export const TitleStyled = styled.h1`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
+  gap: 0.2rem;
+  padding: 0.4rem;
+  margin: 0;
+  color: ${({ theme: { colors } }) => colors.inverse};
+`;
+
+export const ResultsStyled = styled.p`
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
   gap: 0.2rem;
   padding: 0.4rem;
   margin: 0;

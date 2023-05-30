@@ -7,16 +7,16 @@ import { cleanText } from "@/app/utils/cleanText";
 type Props = {};
 
 const Menubar = (props: Props) => {
-  const { searchText, setSearchText, getInfoJobsOffers } = useOffersContext();
+  const { params, setParams, getInfoJobsOffers } = useOffersContext();
   return (
     <MenubarStyled>
       <InputText
-        onChange={(e) => setSearchText(e)}
+        onChange={(e) => setParams({ ...params, ["q"]: e })}
         placeholder={"Puesto, empresa o palabra clave"}
         buttonOnClick={() =>
-          getInfoJobsOffers(false, { q: cleanText(searchText) })
+          getInfoJobsOffers(false, { q: cleanText(params.q?.toString()) })
         }
-        value={searchText}
+        value={params.q?.toString()}
       />
     </MenubarStyled>
   );

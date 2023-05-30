@@ -21,6 +21,7 @@ export const ContentStyled = styled.div<props>`
   background: ${({ theme: { colors } }) => colors.infojobsGray};
   display: flex;
   width: 100%;
+  min-height: 100vh;
   height: 100%;
   overflow-x: hidden;
   flex-direction: column;
@@ -30,7 +31,8 @@ export const ContentStyled = styled.div<props>`
 `;
 
 export const PageContainer = styled.main`
-  padding-bottom: 120px;
+  padding-top: 50px;
+  padding-bottom: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;

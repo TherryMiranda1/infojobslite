@@ -1,5 +1,5 @@
+import { CATEGORIES } from "./categories";
 import { CONTRACT_TYPES } from "./contractType";
-import { ORDER } from "./order";
 import { PROVINCES } from "./provinces";
 import { SINCE_DATE } from "./sinceDate";
 import { SUBCATEGORIES } from "./subcategories";
@@ -10,6 +10,6 @@ export const allFilters = [
   CONTRACT_TYPES,
   SINCE_DATE,
   PROVINCES,
+  CATEGORIES,
   SUBCATEGORIES,
-  ORDER,
 ];

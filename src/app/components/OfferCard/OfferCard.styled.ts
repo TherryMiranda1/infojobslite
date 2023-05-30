@@ -41,6 +41,10 @@ export const OfferCardStyled = styled.article`
     margin: 0;
     font-size: 16px;
     transition: all 0.2s ease-in-out;
+    max-lines: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 80px;
     &:hover {
       scale: 1.02;
       opacity: 0.8;
