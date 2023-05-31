@@ -7,9 +7,10 @@ import { IntersectionTrigger } from "../components/IntersectionTrigger/Intersect
 import OfferCard from "../components/OfferCard/OfferCard";
 import { useOffersContext } from "../context/offersContext";
 import { Offer } from "../domain/models/Offer";
-import { cleanText } from "../utils/cleanText";
 import { PageContainer } from "../components/App.styled";
 import { ResultsStyled } from "../components/Navbar/Navbar.styled";
+import { cleanText } from "../utils/cleanText";
+import { uppercaser } from "../utils";
 
 export function ListOfOffers() {
   const {
@@ -18,7 +19,7 @@ export function ListOfOffers() {
     isLoading,
     hasPagination,
     updateLoading,
-    searchText,
+    params,
     info,
   } = useOffersContext();
 
@@ -36,7 +37,7 @@ export function ListOfOffers() {
         <ResultsStyled>
           {`${info.totalResults} Resultados`}
           {Boolean(info.dataLayer.search_terms) &&
-            ` para ${info.dataLayer.search_terms}`}
+            ` para "${uppercaser(info.dataLayer.search_terms)}"`}
         </ResultsStyled>
       )}
       <OffersContainer>
@@ -46,9 +47,7 @@ export function ListOfOffers() {
       {hasPagination && offers?.length > 0 && !isLoading && (
         <IntersectionTrigger
           isLoading={updateLoading}
-          onIntercept={() =>
-            getInfoJobsOffers(true, { q: cleanText(searchText) })
-          }
+          onIntercept={() => getInfoJobsOffers(true, params)}
         />
       )}
     </PageContainer>

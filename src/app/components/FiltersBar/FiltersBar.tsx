@@ -35,9 +35,14 @@ type Props = {
   filter: Filter;
   setSelectedFilter: (filter?: Filter) => void;
   selectedFilter?: Filter;
+  scrollToTop: () => void;
 };
 
-export const FilterCard = ({ filter, setSelectedFilter }: Props) => {
+export const FilterCard = ({
+  filter,
+  setSelectedFilter,
+  scrollToTop,
+}: Props) => {
   const { params, setParams } = useOffersContext();
 
   return (
@@ -49,6 +54,7 @@ export const FilterCard = ({ filter, setSelectedFilter }: Props) => {
             onClick={(e) => {
               setParams({ ...params, [filter.query]: undefined });
               e.stopPropagation();
+              scrollToTop();
             }}
           >
             <RiCloseFill size={18} />
@@ -71,6 +77,13 @@ const FiltersBar = () => {
     undefined
   );
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const filteredItems = (selectedFilter: Filter) => {
     const { items, type } = selectedFilter;
     if (searchItemsText.length === 0) {
@@ -89,8 +102,8 @@ const FiltersBar = () => {
     selectedFilter && setParams({ ...params, [selectedFilter.query]: filter });
     setSelectedFilter(undefined);
     setSearchItemsText("");
+    scrollToTop();
   };
-  console.log(selectedFilter);
 
   return (
     <FiltersContainer>
@@ -101,6 +114,7 @@ const FiltersBar = () => {
             key={filter.query}
             selectedFilter={selectedFilter}
             setSelectedFilter={setSelectedFilter}
+            scrollToTop={scrollToTop}
           />
         ))}
       </FiltersBarStyled>
