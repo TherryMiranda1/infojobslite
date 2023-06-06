@@ -24,7 +24,7 @@ interface FilterItem {
   key: string;
   parent?: number;
 }
-interface Filter {
+export interface Filter {
   query: string;
   title: string;
   type: string;
@@ -39,7 +39,10 @@ type Props = {
 };
 
 const translateDays = (string: string) =>
-  string.replace("DAYS", "dias").replace("HOURS", "horas").replace("ANY", "Cualquiera");
+  string
+    .replace("DAYS", "dias")
+    .replace("HOURS", "horas")
+    .replace("ANY", "Cualquiera");
 
 export const FilterCard = ({
   filter,
@@ -73,12 +76,10 @@ export const FilterCard = ({
 };
 
 const FiltersBar = () => {
-  const { params, setParams } = useOffersContext();
+  const { params, setParams, setSelectedFilter, selectedFilter } =
+    useOffersContext();
 
   const [searchItemsText, setSearchItemsText] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState<Filter | undefined>(
-    undefined
-  );
 
   const scrollToTop = () => {
     window.scrollTo({

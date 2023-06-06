@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useOffers } from "../hooks/useOffers";
 import { Offer } from "../domain/models/Offer";
+import { Filter } from "../components/FiltersBar/FiltersBar";
 
 export interface GetOffersParams {
   page?: string;
@@ -19,6 +20,8 @@ interface OffersContextType {
   setSearchText: (text: string) => void;
   params: Record<string, string | number | undefined>;
   setParams: (params: Record<string, string | number | undefined>) => void;
+  setSelectedFilter: (filter?: Filter) => void;
+  selectedFilter?: Filter;
 }
 
 const OffersContext = createContext<OffersContextType>({} as OffersContextType);
@@ -51,6 +54,9 @@ export const OffersContainer = ({
   const [searchText, setSearchText] = useState("");
   const [params, setParams] =
     useState<Record<string, string | number | undefined>>(EMPTY_PARAMS);
+  const [selectedFilter, setSelectedFilter] = useState<Filter | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     getInfoJobsOffers();
@@ -72,6 +78,8 @@ export const OffersContainer = ({
         setSearchText,
         params,
         setParams,
+        selectedFilter,
+        setSelectedFilter,
       }}
     >
       {children}

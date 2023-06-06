@@ -7,9 +7,10 @@ import { cleanText } from "@/app/utils/cleanText";
 type Props = {};
 
 const Menubar = (props: Props) => {
-  const { params, setParams, getInfoJobsOffers } = useOffersContext();
+  const { params, setParams, getInfoJobsOffers, selectedFilter } =
+    useOffersContext();
   return (
-    <MenubarStyled>
+    <MenubarStyled opacity={selectedFilter ? 0 : 1}>
       <InputText
         onChange={(e) => setParams({ ...params, ["q"]: e })}
         placeholder={"Puesto, empresa o palabra clave"}

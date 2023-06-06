@@ -6,6 +6,7 @@ import { useScrollDirection } from "@/app/hooks/useScroll";
 import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
 import { useTheme } from "styled-components";
 import FiltersBar from "../FiltersBar/FiltersBar";
+import Menubar from "../MenuBar/Menubar";
 
 interface Props {
   isDarkMode: boolean;
@@ -17,25 +18,27 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: Props) => {
 
   const DefaultTheme = useTheme();
   return (
-    <NavBarStyled
-      style={{
-        background: awayOfTop
-          ? DefaultTheme?.colors.primary
-          : DefaultTheme?.colors.infojobsGray,
-        boxShadow: awayOfTop ? "rgba(0, 0, 0, 0.16) 0px 1px 4px" : "",
-      }}
-    >
-      <FixedMenuStyled>
-        <TitleStyled>
-          <Logo />
-          <strong>lite</strong>
-        </TitleStyled>
-        <ThemeSwitch isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      </FixedMenuStyled>
-      <FixedMenuStyled>
-        <FiltersBar />
-      </FixedMenuStyled>
-    </NavBarStyled>
+    <><Menubar />
+      <NavBarStyled
+        style={{
+          background: awayOfTop
+            ? DefaultTheme?.colors.primary
+            : DefaultTheme?.colors.infojobsGray,
+          boxShadow: awayOfTop ? "rgba(0, 0, 0, 0.16) 0px 1px 4px" : "",
+        }}
+      >
+        <FixedMenuStyled>
+          <TitleStyled>
+            <Logo />
+            <strong>lite</strong>
+          </TitleStyled>
+          <ThemeSwitch isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        </FixedMenuStyled>
+        <FixedMenuStyled>
+          <FiltersBar />
+        </FixedMenuStyled>
+      </NavBarStyled>
+    </>
   );
 };
 

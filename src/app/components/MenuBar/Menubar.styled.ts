@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-export const MenubarStyled = styled.section`
+interface IMenuBarStyled {
+  opacity: number;
+}
+export const MenubarStyled = styled.section<IMenuBarStyled>`
   display: flex;
   width: auto;
   position: fixed;
   z-index: 20;
-  height: 70px;
   top: 8px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  opacity: ${(props) => props.opacity};
   @media (max-width: 590px) {
     top: 120px;
   }

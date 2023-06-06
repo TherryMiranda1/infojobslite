@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { OffersContainer } from "./context/offersContext";
 import { AppContainer, ContentStyled } from "./components/App.styled";
 import { Poppins } from "next/font/google";
-import Menubar from "./components/MenuBar/Menubar";
 import Banner from "./components/Banner/Banner";
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
@@ -26,7 +25,6 @@ export default function Home() {
           <Banner />
         ) : (
           <ContentStyled className={poppins.className}>
-            <Menubar />
             <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
             <AppContainer>
               <ListOfOffers />
