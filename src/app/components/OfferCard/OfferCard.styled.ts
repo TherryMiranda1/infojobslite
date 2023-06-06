@@ -25,7 +25,7 @@ export const OfferCardStyled = styled.article`
   align-items: flex-start;
   color: ${({ theme: { colors } }) => colors.secondary};
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 28px;
+  border-radius: 1px;
   transition: all 0.4s ease-in-out;
   img {
     width: 100px;

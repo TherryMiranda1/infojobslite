@@ -38,6 +38,9 @@ type Props = {
   scrollToTop: () => void;
 };
 
+const translateDays = (string: string) =>
+  string.replace("DAYS", "dias").replace("HOURS", "horas").replace("ANY", "Cualquiera");
+
 export const FilterCard = ({
   filter,
   setSelectedFilter,
@@ -49,7 +52,7 @@ export const FilterCard = ({
     <FilterCardStyled key={filter.query}>
       {Boolean(params[filter.query]) ? (
         <ButtonStyledDark onClick={() => setSelectedFilter(filter)}>
-          <p>{uppercaser(`${params[filter.query]}`)}</p>
+          <p>{translateDays(uppercaser(`${params[filter.query]}`))}</p>
           <RemoveButton
             onClick={(e) => {
               setParams({ ...params, [filter.query]: undefined });
@@ -118,26 +121,26 @@ const FiltersBar = () => {
           />
         ))}
       </FiltersBarStyled>
-      {selectedFilter && (
-        <BackdropStyled>
-          <SelectionCardStyled>
-            <CloseButton
-              onClick={() => {
-                setSelectedFilter(undefined);
-                setSearchItemsText("");
-              }}
-            >
-              <RiCloseFill size={24} />
-            </CloseButton>
-            <h4>Elige {selectedFilter.title}</h4>
-            {selectedFilter.items.length > 10 && (
-              <InputText
-                onChange={(e) => setSearchItemsText(e)}
-                placeholder={selectedFilter.title}
-              />
-            )}
-            <ItemsContainer>
-              {filteredItems(selectedFilter)?.map((item: any) => (
+      <BackdropStyled opacity={selectedFilter ? 1 : 0}>
+        <SelectionCardStyled>
+          <CloseButton
+            onClick={() => {
+              setSelectedFilter(undefined);
+              setSearchItemsText("");
+            }}
+          >
+            <RiCloseFill size={24} />
+          </CloseButton>
+          <h4>Elige {selectedFilter?.title}</h4>
+          {selectedFilter?.items.length > 10 && (
+            <InputText
+              onChange={(e) => setSearchItemsText(e)}
+              placeholder={selectedFilter?.title}
+            />
+          )}
+          <ItemsContainer>
+            {selectedFilter &&
+              filteredItems(selectedFilter)?.map((item: any) => (
                 <FilterCardStyled
                   key={selectedFilter?.type === "string" ? item : item.id}
                 >
@@ -149,15 +152,14 @@ const FiltersBar = () => {
                     }
                   >
                     {selectedFilter?.type === "string"
-                      ? item.replaceAll("_", " ")
+                      ? translateDays(item.replaceAll("_", " "))
                       : item.value}
                   </ButtonStyled>
                 </FilterCardStyled>
               ))}
-            </ItemsContainer>
-          </SelectionCardStyled>
-        </BackdropStyled>
-      )}
+          </ItemsContainer>
+        </SelectionCardStyled>
+      </BackdropStyled>
     </FiltersContainer>
   );
 };

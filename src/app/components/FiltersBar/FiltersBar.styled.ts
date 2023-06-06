@@ -1,5 +1,9 @@
 import { styled } from "styled-components";
 
+interface IBackdropStyled {
+  opacity: number;
+}
+
 export const FiltersContainer = styled.section`
   display: flex;
   align-items: center;
@@ -70,17 +74,19 @@ export const ButtonStyledDark = styled.button`
   }
 `;
 
-export const BackdropStyled = styled.section`
-  display: flex;
+export const BackdropStyled = styled.section<IBackdropStyled>`
   flex-direction: column;
   position: fixed;
-  top: 0;
+  display: flex;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 40;
   align-items: center;
-  backdrop-filter: blur(10px);
+  transition: all 0.4s ease-in-out;
+  opacity: ${(props) => props.opacity};
+  top: ${(props) => (props.opacity === 0 ? "-1000px" : "0px")};
+  backdrop-filter: ${(props) => `blur(${props.opacity * 8}px)`};
 `;
 
 export const SelectionCardStyled = styled.section`
